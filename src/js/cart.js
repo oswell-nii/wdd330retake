@@ -1,4 +1,8 @@
 import { getLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
+// add cart-related logic only (e.g., showCartItems, calculateTotals, etc.)
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
