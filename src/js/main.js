@@ -5,6 +5,8 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
+
+loadHeaderFooter();
 const category = "tents";
 const dataSource = new ProductData(category);
 const listElement = document.querySelector(".product-list"); // or your target container
