@@ -293,3 +293,22 @@ footer {
   justify-items: center;
   padding: 1rem;
 }
+
+.cart {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: -10;
+  right: 0;
+  background: red;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  display: none; /* hides when cart is empty */
+  transform: translate(50%, -50%);
+}
