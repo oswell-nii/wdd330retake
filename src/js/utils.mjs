@@ -62,3 +62,20 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
+
+
+// ✅ Reusable function to update cart item badge
+export function updateCartCount() {
+  const cart = getLocalStorage("so-cart") || [];
+  const count = cart.length;
+  const badge = document.getElementById("cart-count");
+
+  if (badge) {
+    if (count > 0) {
+      badge.textContent = count;
+      badge.style.display = "inline";
+    } else {
+      badge.style.display = "none";
+    }
+  }
+}

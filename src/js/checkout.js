@@ -1,3 +1,6 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, updateCartCount } from "./utils.mjs";
 
-loadHeaderFooter();
+// Load header and footer, then update cart badge
+loadHeaderFooter().then(() => {
+  updateCartCount();
+});

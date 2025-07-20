@@ -1,4 +1,9 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, loadHeaderFooter, updateCartCount } from "./utils.mjs";
+
+// Load header and footer, then update cart badge
+loadHeaderFooter().then(() => {
+  updateCartCount();
+});
 
 export default class ProductDetails {
   constructor(productId, dataSource) {
@@ -27,7 +32,7 @@ export default class ProductDetails {
       <h3>${product.Brand?.Name || " "}</h3>
       <h2 class="divider">${product.NameWithoutBrand}</h2>
 
-      <img class="divider" src="${product.Image}" alt="${product.Name}" />
+      <img class="divider" src="${product.Images.PrimaryLarge}" alt="${product.Name}" />
 
       <p class="product-card__price">$${product.FinalPrice}</p>
       <p class="product__color">${product.Colors?.[0]?.ColorName || " "}</p>

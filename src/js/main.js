@@ -1,32 +1,16 @@
 // main.js
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-import { loadHeaderFooter, getLocalStorage } from "./utils.mjs";
+import { loadHeaderFooter, updateCartCount } from "./utils.mjs";
 
-// ✅ Wait for header to load, then run other logic
+// Load header and footer, then update cart badge
 loadHeaderFooter().then(() => {
   updateCartCount();
-
-  const category = "tents";
-  const dataSource = new ProductData(category);
-  const listElement = document.querySelector(".product-list");
-
-  const tentList = new ProductList(category, dataSource, listElement);
-  tentList.init();
 });
 
-// ✅ Function to update cart item badge
-function updateCartCount() {
-  const cart = getLocalStorage("so-cart") || [];
-  const count = cart.length;
-  const badge = document.getElementById("cart-count");
+const category = "tents";
+const dataSource = new ProductData(category);
+const listElement = document.querySelector(".product-list");
 
-  if (badge) {
-    if (count > 0) {
-      badge.textContent = count;
-      badge.style.display = "inline";
-    } else {
-      badge.style.display = "none";
-    }
-  }
-}
+const tentList = new ProductList(category, dataSource, listElement);
+tentList.init();
