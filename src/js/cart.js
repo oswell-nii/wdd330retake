@@ -1,8 +1,10 @@
 import { getLocalStorage } from "./utils.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, updateCartCount } from "./utils.mjs";
 
-loadHeaderFooter();
-// add cart-related logic only (e.g., showCartItems, calculateTotals, etc.)
+// Load header and footer, then update cart badge
+loadHeaderFooter().then(() => {
+  updateCartCount();
+});
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
