@@ -36,6 +36,33 @@ header {
   padding: 0.5rem;
 }
 
+form {
+  border: 2px solid black;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+fieldset{
+  border-radius: 1rem;
+  padding: 0 30px;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin: 10px;
+}
+
+input[type="submit" i]{
+  border-radius: 1rem;
+  padding: 6px 15px;
+  margin-top: 10px;
+  width: 50%;
+  justify-self: center;
+}
+
 p {
   padding: 0.75rem;
 }
