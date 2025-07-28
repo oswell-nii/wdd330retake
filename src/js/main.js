@@ -1,5 +1,5 @@
 // main.js
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, updateCartCount } from "./utils.mjs";
 
@@ -9,7 +9,7 @@ loadHeaderFooter().then(() => {
 });
 
 const category = "tents";
-const dataSource = new ProductData(category);
+const dataSource = new ExternalServices(category);
 const listElement = document.querySelector(".product-list");
 
 const tentList = new ProductList(category, dataSource, listElement);

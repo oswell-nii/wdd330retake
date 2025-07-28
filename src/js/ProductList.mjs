@@ -1,9 +1,4 @@
-import { renderListWithTemplate, loadHeaderFooter, updateCartCount } from "./utils.mjs";
-
-// Load header and footer, then update cart badge
-loadHeaderFooter().then(() => {
-  updateCartCount();
-});
+import { renderListWithTemplate, setBreadcrumb } from "./utils.mjs"; // import setBreadcrumb
 
 function productCardTemplate(product) {
   return `<li class="product-card">
@@ -26,9 +21,15 @@ export default class ProductList {
   async init() {
     const list = await this.dataSource.getData(this.category);
     this.renderList(list);
+    this.setBreadcrumb(list.length); // set the breadcrumb here
   }
 
   renderList(list) {
     renderListWithTemplate(productCardTemplate, this.listElement, list);
+  }
+
+  setBreadcrumb(count) {
+    const formattedCategory = this.category.charAt(0).toUpperCase() + this.category.slice(1);
+    setBreadcrumb(`${formattedCategory} → (${count} items)`);
   }
 }

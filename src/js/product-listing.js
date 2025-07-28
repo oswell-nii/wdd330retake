@@ -1,5 +1,5 @@
 // main.js
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, getParam, updateCartCount } from "./utils.mjs";
 
@@ -19,7 +19,7 @@ if (titleElement && category) {
   titleElement.textContent = `Top Products: ${capitalized}`;
 }
 
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 const listElement = document.querySelector(".product-list");
 const tentList = new ProductList(category, dataSource, listElement);
 tentList.init();

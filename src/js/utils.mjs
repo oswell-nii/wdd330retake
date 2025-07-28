@@ -46,6 +46,12 @@ export function renderWithTemplate(template, parentElement, data, callback) {
   }
 }
 
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement);
+  return Object.fromEntries(formData.entries());
+}
+
+
 async function loadTemplate(path) {
   const res = await fetch(path);
   const template = await res.text();
@@ -77,5 +83,12 @@ export function updateCartCount() {
     } else {
       badge.style.display = "none";
     }
+  }
+}
+
+export function setBreadcrumb(text) {
+  const el = document.querySelector("#breadcrumb");
+  if (el) {
+    el.textContent = text;
   }
 }
