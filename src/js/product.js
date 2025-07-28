@@ -1,5 +1,5 @@
 import { getParam, loadHeaderFooter, updateCartCount } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
 // Load header and footer, then update cart badge
@@ -11,7 +11,7 @@ loadHeaderFooter().then(() => {
 const productId = getParam("product");
 
 // Create a new instance of ProductData for the "tents" category
-const dataSource = new ProductData("tents");
+const dataSource = new ExternalServices("tents");
 
 // Create a new ProductDetails instance
 const product = new ProductDetails(productId, dataSource);
